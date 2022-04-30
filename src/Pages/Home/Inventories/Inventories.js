@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import Product from "../Product/Product";
+import Inventory from "../Inventory/Inventory";
 
-const Products = () => {
+const Inventories = () => {
   const [products, setProducts] = useState([]);
   useEffect(() => {
     fetch("products.json")
@@ -12,12 +12,12 @@ const Products = () => {
     <div>
       <h1>Available Product {products.length}</h1>
       <div className="grid grid-cols-3 p-10 ">
-        {products.map((product) => (
-          <Product key={product.id} product={product}></Product>
+        {products.map((Item) => (
+          <Inventory key={Item.id} item={Item}></Inventory>
         ))}
       </div>
     </div>
   );
 };
 
-export default Products;
+export default Inventories;

@@ -1,7 +1,7 @@
 import React from "react";
 
-const Product = ({ product }) => {
-  const { name, img, description, price, seller, quantity } = product;
+const Inventory = ({ item }) => {
+  const { name, img, description, price, seller, quantity } = item;
   return (
     <div className="border border-slate-400">
       <img src={img} alt="" />
@@ -14,4 +14,4 @@ const Product = ({ product }) => {
   );
 };
 
-export default Product;
+export default Inventory;
