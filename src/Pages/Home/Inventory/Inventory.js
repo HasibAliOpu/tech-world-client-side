@@ -2,7 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const Inventory = ({ item }) => {
-  const { name, img, description, price, seller, quantity } = item;
+  const { _id, name, img, description, price, supplier, quantity } = item;
+
   return (
     <div className="border border-slate-400 p-8 rounded">
       <img src={img} alt="" />
@@ -10,8 +11,8 @@ const Inventory = ({ item }) => {
       <h1>Price: ${price}</h1>
       <p>{description}</p>
       <p>quantity:{quantity}</p>
-      <small>{seller}</small>
-      <Link to="/">Update</Link>
+      <small>{supplier}</small>
+      <Link to={`/inventory/${_id}`}>Update</Link>
     </div>
   );
 };
