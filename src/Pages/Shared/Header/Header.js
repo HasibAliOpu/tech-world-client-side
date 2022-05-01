@@ -9,6 +9,7 @@ const Header = () => {
           <h1>Tech World</h1>
         </span>
         <span>
+          <Link to="/">Home</Link>
           <Link to="/login">Login</Link>
         </span>
       </span>

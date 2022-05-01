@@ -12,7 +12,10 @@ const Inventory = ({ item }) => {
       <p>{description}</p>
       <p>quantity:{quantity}</p>
       <small>{supplier}</small>
-      <Link to={`/inventory/${_id}`}>Update</Link>
+      <br />
+      <Link className="bg-indigo-200" to={`/inventory/${_id}`}>
+        Update
+      </Link>
     </div>
   );
 };
