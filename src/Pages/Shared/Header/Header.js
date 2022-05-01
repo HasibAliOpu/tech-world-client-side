@@ -8,8 +8,9 @@ const Header = () => {
         <span className="text-4xl font-semibold font-serif">
           <h1>Tech World</h1>
         </span>
-        <span>
+        <span className="flex gap-3 font-semibold">
           <Link to="/">Home</Link>
+          <Link to="/addItem">Add Item</Link>
           <Link to="/login">Login</Link>
         </span>
       </span>
