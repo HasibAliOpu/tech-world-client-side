@@ -6,7 +6,7 @@ import { toast } from "react-toastify";
 const AddItem = () => {
   const { register, handleSubmit } = useForm();
   const onSubmit = async (itemInfo, event) => {
-    const url = `http://localhost:5000/item`;
+    const url = `https://fierce-fjord-73876.herokuapp.com/item`;
     try {
       const { data } = await axios.post(url, itemInfo);
       toast.success(data.message);
@@ -70,7 +70,7 @@ const AddItem = () => {
           {...register("quantity", { min: 1, max: 99 })}
         />
         <input
-          className="transition ease-in-out delay-150  bg-yellow-300  text-xl  hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500 duration-300  py-2 mx-32 rounded-full "
+          className="transition ease-in-out delay-150  bg-yellow-300  text-xl  hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500 duration-300  py-2 my-5 w-1/2 mx-auto rounded-full "
           type="submit"
           value="Add"
         />
