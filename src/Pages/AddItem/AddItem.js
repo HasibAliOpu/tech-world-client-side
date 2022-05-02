@@ -6,14 +6,29 @@ import { toast } from "react-toastify";
 const AddItem = () => {
   const { register, handleSubmit } = useForm();
   const onSubmit = async (itemInfo, event) => {
-    const url = `https://fierce-fjord-73876.herokuapp.com/item`;
-    try {
+    const url = `http://localhost:5000/item`;
+
+    fetch(url, {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(itemInfo),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        toast.success(data.message);
+        event.target.reset();
+      });
+
+    /*  try {
       const { data } = await axios.post(url, itemInfo);
       toast.success(data.message);
       event.target.reset();
     } catch (error) {
       toast.error(error);
-    }
+    } */
   };
 
   return (

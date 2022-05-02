@@ -1,8 +1,30 @@
+import axios from "axios";
 import React from "react";
-import useGetAllProduct from "../Hooks/useGetAllProduct";
+import { toast } from "react-toastify";
+import useGetAllItems from "../Hooks/useGetAllItems";
 
 const ManageInventory = () => {
-  const [products] = useGetAllProduct();
+  const [products] = useGetAllItems();
+
+  const handleDeleteItem = (id) => {
+    const proceed = window.confirm(
+      "Are you sure you want to delete this item?"
+    );
+    const url = `http://localhost:5000/item/${id}`;
+    if (proceed) {
+      fetch(url, {
+        method: "DELETE",
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          console.log(data);
+        });
+      // (async () => {
+      //   const { data } = await axios.delete(url);
+      //   console.log(data);
+      // })();
+    }
+  };
   return (
     <div>
       <h1>all Products</h1>
@@ -19,7 +41,12 @@ const ManageInventory = () => {
             <p>quantity:{product.quantity}</p>
             <small>Supplier: {product.supplier}</small>
             <br />
-            <button className="bg-red-700">DELETE</button>
+            <button
+              onClick={() => handleDeleteItem(product._id)}
+              className="bg-red-700"
+            >
+              DELETE
+            </button>
           </div>
         ))}
       </div>

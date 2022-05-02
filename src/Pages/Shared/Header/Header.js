@@ -11,6 +11,7 @@ const Header = () => {
         <span className="flex gap-3 font-semibold">
           <Link to="/">Home</Link>
           <Link to="/addItem">Add Item</Link>
+          <Link to="/manageInventory">Manage Inventory</Link>
           <Link to="/login">Login</Link>
         </span>
       </span>

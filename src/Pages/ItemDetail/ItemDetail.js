@@ -5,21 +5,27 @@ import { useParams } from "react-router-dom";
 const ItemDetail = () => {
   const { inventoryId } = useParams();
   const [item, setItem] = useState([]);
-  const [newQuantity, setQuantity] = useState(0);
+
   useEffect(() => {
-    (async () => {
+    const url = `http://localhost:5000/item/${inventoryId}`;
+    fetch(url)
+      .then((res) => res.json())
+      .then((data) => setItem(data));
+
+    /*  (async () => {
       const { data } = await axios.get(
         `https://fierce-fjord-73876.herokuapp.com/item/${inventoryId}`
       );
       setItem(data);
-    })();
+    })(); */
   }, [inventoryId]);
 
   const { name, img, description, price, quantity, supplier } = item;
-  // setQuantity(Number(quantity));
+  let newQuantity = quantity;
   const handleManageQuantity = () => {
-    const store = Number(quantity) + 1;
-    setQuantity(store);
+    newQuantity = newQuantity - 1;
+
+    console.log(newQuantity);
   };
   return (
     <div className="grid grid-cols-2 my-2 p-28">
@@ -30,7 +36,7 @@ const ItemDetail = () => {
       <span className="border">
         <h1>Name: {name}</h1>
         <p>Price: ${price}</p>
-        <p>Quantity: {newQuantity}</p>
+        <p>Quantity:{newQuantity} </p>
         <p>Supplier: {supplier}</p>
         <hr className="mx-3 my-1" />
         <button onClick={handleManageQuantity} className="bg-indigo-400">
