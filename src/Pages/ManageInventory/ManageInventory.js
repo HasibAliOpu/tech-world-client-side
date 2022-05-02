@@ -1,5 +1,6 @@
 import axios from "axios";
 import React from "react";
+import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 import useGetAllItems from "../Hooks/useGetAllItems";
 
@@ -41,6 +42,9 @@ const ManageInventory = () => {
             <p>quantity:{product.quantity}</p>
             <small>Supplier: {product.supplier}</small>
             <br />
+            <Link className="bg-indigo-600" to={`/inventory/${product._id}`}>
+              Update
+            </Link>
             <button
               onClick={() => handleDeleteItem(product._id)}
               className="bg-red-700"

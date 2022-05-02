@@ -7,7 +7,7 @@ const Inventories = () => {
   const [products] = useGetAllItems();
   return (
     <div>
-      <h1 className="text-3xl my-4 font-semibold font-serif">
+      <h1 className="text-3xl text-cyan-400 my-9 font-semibold font-serif text-center">
         Our Top Products
       </h1>
       <div className="grid grid-cols-3 gap-5 mx-20">

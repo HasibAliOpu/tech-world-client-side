@@ -27,8 +27,22 @@ function App() {
             </RequireAuth>
           }
         />
-        <Route path="/addItem" element={<AddItem />} />
-        <Route path="/myItem" element={<MyItems />} />
+        <Route
+          path="/addItem"
+          element={
+            <RequireAuth>
+              <AddItem />
+            </RequireAuth>
+          }
+        />
+        <Route
+          path="/myItem"
+          element={
+            <RequireAuth>
+              <MyItems />
+            </RequireAuth>
+          }
+        />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
       </Routes>
