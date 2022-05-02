@@ -1,7 +1,39 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import {
+  useCreateUserWithEmailAndPassword,
+  useUpdateProfile,
+} from "react-firebase-hooks/auth";
+import auth from "../firebase.init";
+import { toast } from "react-toastify";
+import Loading from "../Loading/Loading";
 
 const Register = () => {
+  const location = useLocation();
+  const navigate = useNavigate();
+  const from = location.state?.from?.pathname || "/";
+  const [createUserWithEmailAndPassword, user, loading, error] =
+    useCreateUserWithEmailAndPassword(auth);
+  const [updateProfile, updating, updateError] = useUpdateProfile(auth);
+  if (error) {
+    toast.error(error.message);
+  }
+  useEffect(() => {
+    if (user) {
+      navigate(from, { replace: true });
+    }
+  }, [user, navigate, from]);
+  if (loading) {
+    return <Loading />;
+  }
+  const handleCreateUser = async (e) => {
+    e.preventDefault();
+    const name = e.target.name.value;
+    const email = e.target.email.value;
+    const password = e.target.password.value;
+    await createUserWithEmailAndPassword(email, password);
+    await updateProfile({ displayName: name });
+  };
   return (
     <div className="md:w-1/2 p-10 md:p-0  mx-auto">
       <div className="flex flex-col items-start justify-between w-full px-10 pt-5 pb-20 lg:pt-20 lg:flex-row">
@@ -10,13 +42,17 @@ const Register = () => {
             <h4 className="w-full text-4xl font-medium text-blue-600 leading-snug">
               Please Register!!
             </h4>
-            <form className="relative w-full mt-6 space-y-8">
+            <form
+              onSubmit={handleCreateUser}
+              className="relative w-full mt-6 space-y-8"
+            >
               <div className="relative">
                 <label className="absolute px-2 ml-2 -mt-3 font-medium text-gray-600 bg-white">
                   Your Name
                 </label>
                 <input
                   type="text"
+                  name="name"
                   className="block w-full px-4 py-4 mt-2 text-base bg-white border border-gray-300 rounded-md focus:outline-none focus:border-black"
                   required
                 />
@@ -27,7 +63,8 @@ const Register = () => {
                   Email Address
                 </label>
                 <input
-                  type="text"
+                  type="email"
+                  name="email"
                   className="block w-full px-4 py-4 mt-2 text-base  bg-white border border-gray-300 rounded-md focus:outline-none focus:border-black"
                   required
                 />
@@ -37,7 +74,8 @@ const Register = () => {
                   Password
                 </label>
                 <input
-                  type="text"
+                  type="password"
+                  name="password"
                   className="block w-full px-4 py-4 mt-2 text-base bg-white border border-gray-300 rounded-md focus:outline-none focus:border-black"
                   required
                 />

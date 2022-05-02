@@ -4,6 +4,9 @@ import { Link } from "react-router-dom";
 const Login = () => {
   const handleUserLogin = (e) => {
     e.preventDefault();
+    const email = e.target.email.value;
+    const password = e.target.password.value;
+    console.log(email, password);
   };
 
   return (
@@ -21,6 +24,7 @@ const Login = () => {
             <input
               type="email"
               name="email"
+              required
               className="form-control
         block
         w-full
@@ -51,6 +55,7 @@ const Login = () => {
             <input
               type="password"
               name="password"
+              required
               className="form-control block
         w-full
         px-3
