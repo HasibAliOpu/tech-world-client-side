@@ -13,9 +13,9 @@ const Register = () => {
   const navigate = useNavigate();
   const from = location.state?.from?.pathname || "/";
   const [createUserWithEmailAndPassword, user, loading, error] =
-    useCreateUserWithEmailAndPassword(auth);
+    useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
   const [updateProfile, updating, updateError] = useUpdateProfile(auth);
-  if (error) {
+  if (error || updateError) {
     toast.error(error.message);
   }
   useEffect(() => {
@@ -23,7 +23,7 @@ const Register = () => {
       navigate(from, { replace: true });
     }
   }, [user, navigate, from]);
-  if (loading) {
+  if (loading || updating) {
     return <Loading />;
   }
   const handleCreateUser = async (e) => {
