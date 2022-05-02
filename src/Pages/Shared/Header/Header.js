@@ -19,7 +19,7 @@ const Header = () => {
             <>
               <Link to="/addItem">Add Item</Link>
               <Link to="/myItem">My Items</Link>
-              <Link to="/manageInventory">Manage Inventory</Link>
+              <Link to="/manageInventory">Manage Items</Link>
               <button onClick={() => signOut(auth)}>LogOut</button>
               <p className="text-sky-700">
                 {user?.displayName ? user.displayName : "User"}

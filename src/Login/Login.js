@@ -1,14 +1,49 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import { async } from "@firebase/util";
+import React, { useEffect, useRef } from "react";
+import {
+  useSendPasswordResetEmail,
+  useSignInWithEmailAndPassword,
+} from "react-firebase-hooks/auth";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
+import auth from "../firebase.init";
+import Loading from "../Loading/Loading";
 
 const Login = () => {
-  const handleUserLogin = (e) => {
-    e.preventDefault();
-    const email = e.target.email.value;
-    const password = e.target.password.value;
-    console.log(email, password);
-  };
+  const emailRef = useRef("");
+  const passwordRef = useRef("");
+  const location = useLocation();
+  const navigate = useNavigate();
+  const from = location.state?.from?.pathname || "/";
+  const [signInWithEmailAndPassword, user, loading, error] =
+    useSignInWithEmailAndPassword(auth);
+  const [sendPasswordResetEmail, sending, sendEmailError] =
+    useSendPasswordResetEmail(auth);
 
+  useEffect(() => {
+    if (user) {
+      navigate(from, { replace: true });
+    }
+  }, [user, navigate, from]);
+
+  if (loading || sending) {
+    return <Loading />;
+  }
+  if (error || sendEmailError) {
+    toast.error(error.message);
+  }
+
+  const handleUserLogin = async (event) => {
+    event.preventDefault();
+    const email = emailRef.current.value;
+    const password = passwordRef.current.value;
+    await signInWithEmailAndPassword(email, password);
+  };
+  const handleResetPassword = async () => {
+    const email = emailRef.current.value;
+    await sendPasswordResetEmail(email);
+    toast("send Email");
+  };
   return (
     <div className=" w-1/2 my-5 mx-auto">
       <h1 className="text-3xl text-center">Please Login</h1>
@@ -24,6 +59,7 @@ const Login = () => {
             <input
               type="email"
               name="email"
+              ref={emailRef}
               required
               className="form-control
         block
@@ -55,6 +91,7 @@ const Login = () => {
             <input
               type="password"
               name="password"
+              ref={passwordRef}
               required
               className="form-control block
         w-full
@@ -75,7 +112,10 @@ const Login = () => {
             />
           </div>
           <div className="flex justify-between items-center mb-6">
-            <button className="text-blue-600 hover:text-blue-700 focus:text-blue-700 transition duration-200 ease-in-out">
+            <button
+              onClick={handleResetPassword}
+              className="text-blue-600 hover:text-blue-700 focus:text-blue-700 transition duration-200 ease-in-out"
+            >
               Forgot password?
             </button>
           </div>
