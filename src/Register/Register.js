@@ -7,6 +7,7 @@ import {
 import auth from "../firebase.init";
 import { toast } from "react-toastify";
 import Loading from "../Loading/Loading";
+import SocialLogin from "../SocialLogin/SocialLogin";
 
 const Register = () => {
   const location = useLocation();
@@ -113,6 +114,7 @@ const Register = () => {
                   Login
                 </Link>
               </p>
+              <SocialLogin />
             </form>
           </div>
           <svg
