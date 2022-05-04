@@ -29,20 +29,25 @@ const ItemDetail = () => {
   };
   return (
     <div className="grid grid-cols-2 my-2 p-28">
-      <span className="border">
+      <span className="border-r-2 border-yellow-300 pr-2">
         <img className="w-full" src={img} alt="" />
         <p>{description}</p>
       </span>
-      <span className="border">
-        <h1>Name: {name}</h1>
-        <p>Price: ${price}</p>
-        <p>Quantity:{newQuantity} </p>
-        <p>Supplier: {supplier}</p>
-        <hr className="mx-3 my-1" />
-        <button onClick={handleManageQuantity} className="bg-indigo-400">
-          Delivered
-        </button>
-      </span>
+      <div className="flex items-center text-center font-semibold">
+        <span>
+          <h1 className="text-3xl">Name: {name}</h1>
+          <p className="py-1 text-yellow-500">Price: ${price}</p>
+          <p>Quantity:{newQuantity} </p>
+          <p>Supplier: {supplier}</p>
+          <div className="border-b-2 border-sky-300 mx-3 my-1" />
+          <button
+            onClick={handleManageQuantity}
+            className="bg-green-400 mt-4 px-10 py-1 text-white rounded-full hover:bg-green-500"
+          >
+            Delivered
+          </button>
+        </span>
+      </div>
     </div>
   );
 };

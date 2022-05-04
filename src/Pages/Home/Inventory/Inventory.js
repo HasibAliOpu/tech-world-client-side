@@ -5,14 +5,14 @@ const Inventory = ({ item }) => {
   const { _id, name, img, description, price, supplier, quantity } = item;
 
   return (
-    <div className="border border-slate-400 px-2 rounded relative">
+    <div className="border border-sky-400 px-2 rounded relative">
       <img src={img} alt="" />
-      <h1>Name: {name}</h1>
-      <h1>Price: ${price}</h1>
+      <h1 className="text-xl">Name: {name}</h1>
+      <h1 className="text-lg text-yellow-500">Price: ${price}</h1>
       <p>{description}</p>
-      <p>quantity:{quantity}</p>
+      <p>Quantity:{quantity}</p>
       <p className="mb-2">
-        <small>{supplier}</small>
+        <small>Supplier: {supplier}</small>
       </p>
       <br />
       <Link
