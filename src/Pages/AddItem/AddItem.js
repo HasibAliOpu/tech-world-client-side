@@ -1,9 +1,12 @@
 import axios from "axios";
 import React from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
 import { useForm } from "react-hook-form";
 import { toast } from "react-toastify";
+import auth from "../../firebase.init";
 
 const AddItem = () => {
+  const [user] = useAuthState(auth);
   const { register, handleSubmit } = useForm();
   const onSubmit = async (itemInfo, event) => {
     const url = `http://localhost:5000/item`;
@@ -32,13 +35,17 @@ const AddItem = () => {
   };
 
   return (
-    <div className="w-1/2 mx-auto p-4 border-2 bg-sky-400  border-blue-400 rounded-xl">
-      <h1 className="text-3xl my-2 font-semibold font-serif">Add Your Item</h1>
+    <div className="w-1/2 my-5 mx-auto p-4 border-4 bg-sky-400  border-sky-400 rounded-xl">
+      <h1 className="text-3xl my-4 font-semibold font-serif text-center text-slate-100">
+        Add Your Item
+      </h1>
       <form className="flex flex-col" onSubmit={handleSubmit(onSubmit)}>
         <input
           className="shadow-lg outline-none   mb-2 p-2 text-lg rounded-full"
           placeholder="Email"
           type="email"
+          value={user.email}
+          readOnly
           required
           {...register("email")}
         />
@@ -49,19 +56,20 @@ const AddItem = () => {
           required
           {...register("name")}
         />
-        <textarea
-          className="shadow-lg outline-none  mb-2 p-2 text-lg rounded-full"
-          placeholder="Description"
-          type="text"
-          required
-          {...register("description")}
-        />
+
         <input
           className="shadow-lg outline-none  mb-2 p-2 text-lg rounded-full"
           placeholder="Price"
           type="text"
           required
           {...register("price")}
+        />
+        <input
+          className="shadow-lg outline-none mb-2 p-2 text-lg rounded-full"
+          placeholder="Quantity"
+          type="number"
+          required
+          {...register("quantity", { min: 1, max: 99 })}
         />
         <input
           className="shadow-lg outline-none  mb-2 p-2 text-lg rounded-full"
@@ -77,15 +85,16 @@ const AddItem = () => {
           required
           {...register("img")}
         />
-        <input
-          className="shadow-lg outline-none mb-2 p-2 text-lg rounded-full"
-          placeholder="Quantity"
-          type="number"
+
+        <textarea
+          className="shadow-lg outline-none  mb-2 p-2 text-lg rounded-full"
+          placeholder="Description"
+          type="text"
           required
-          {...register("quantity", { min: 1, max: 99 })}
+          {...register("description")}
         />
         <input
-          className="transition ease-in-out delay-150  bg-yellow-300  text-xl  hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500 duration-300  py-2 my-5 w-1/2 mx-auto rounded-full "
+          className="transition ease-in-out delay-150  bg-yellow-300  text-xl  hover:-translate-y-1 hover:scale-110 hover:bg-orange-400 hover:text-white duration-300  py-2 my-5 w-1/2 mx-auto rounded-full "
           type="submit"
           value="Add"
         />

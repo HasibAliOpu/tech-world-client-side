@@ -2,9 +2,9 @@ import React from "react";
 
 const Loading = () => {
   return (
-    <div className="w-100">
+    <div className="flex justify-center">
       <img
-        src="https://i.pinimg.com/originals/ec/d6/bc/ecd6bc09da634e4e2efa16b571618a22.gif"
+        src="https://cdn.dribbble.com/users/2973561/screenshots/5757826/loading__.gif"
         alt=""
       />
     </div>
