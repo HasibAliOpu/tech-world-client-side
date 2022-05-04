@@ -1,3 +1,5 @@
+import { faTrashCan, faUpload } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import axios from "axios";
 import React from "react";
 import { Link } from "react-router-dom";
@@ -27,30 +29,42 @@ const ManageInventory = () => {
     }
   };
   return (
-    <div>
-      <h1>all Products</h1>
+    <div className="mt-14">
+      <h1 className="text-center font-semibold font-mono text-2xl">
+        All Products
+      </h1>
       <div className="grid grid-cols-3 gap-5 my-5 mx-14">
         {products.map((product) => (
           <div
+            data-aos="zoom-in-down"
             key={product._id}
-            className="border border-slate-400 p-8 rounded"
+            className="px-4 rounded-lg shadow-lg relative"
           >
             <img src={product.img} alt="" />
-            <h1>Name: {product.name}</h1>
-            <h1>Price: ${product.price}</h1>
+            <h1 className="text-xl">Name: {product.name}</h1>
+            <h1 className="text-lg text-yellow-500">Price: ${product.price}</h1>
             <p>{product.description}</p>
             <p>quantity:{product.quantity}</p>
-            <small>Supplier: {product.supplier}</small>
+            <p className="mb-8">
+              <small>Supplier: {product.supplier}</small>
+            </p>
             <br />
-            <Link className="bg-indigo-600" to={`/inventory/${product._id}`}>
-              Update
-            </Link>
-            <button
-              onClick={() => handleDeleteItem(product._id)}
-              className="bg-red-700"
-            >
-              DELETE
-            </button>
+            <div className="absolute bottom-3">
+              <Link
+                className="bg-indigo-500  rounded-full px-2 py-1 mr-3 text-slate-100 font-semibold"
+                to={`/inventory/${product._id}`}
+              >
+                Update
+                <FontAwesomeIcon className="ml-1" icon={faUpload} />
+              </Link>
+              <button
+                onClick={() => handleDeleteItem(product._id)}
+                className="bg-red-500 rounded-full px-2  text-slate-100 font-semibold"
+              >
+                Delete
+                <FontAwesomeIcon className="ml-1" icon={faTrashCan} />
+              </button>
+            </div>
           </div>
         ))}
       </div>

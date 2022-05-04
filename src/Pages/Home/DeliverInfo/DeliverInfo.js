@@ -9,7 +9,7 @@ import React from "react";
 
 const DeliverInfo = () => {
   return (
-    <div className="text-2xl flex items-center justify-around p-14 mx-5 rounded shadow-xl">
+    <div className="text-2xl flex items-center justify-around p-14 mx-5 rounded shadow-lg">
       <div className="flex items-center gap-5">
         <FontAwesomeIcon
           className="text-5xl text-sky-700"

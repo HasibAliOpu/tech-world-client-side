@@ -9,7 +9,7 @@ const Header = () => {
   const [user] = useAuthState(auth);
 
   return (
-    <div className="fixed-top">
+    <div className="">
       <span className="flex justify-between px-10 py-2 bg-sky-200">
         <span className="text-4xl text-slate-700 font-semibold font-serif">
           <Link to="/">Tech World</Link>
