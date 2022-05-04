@@ -10,14 +10,19 @@ const Inventories = () => {
       <h1 className="text-3xl text-cyan-400 my-9 font-semibold font-serif text-center">
         Our Top Products
       </h1>
-      <div className="grid grid-cols-3 gap-5 mx-20">
+      <div className="grid grid-cols-3 gap-5 mx-20 p-6">
         {products.slice(0, 6).map((Item) => (
           <Inventory key={Item._id} item={Item}></Inventory>
         ))}
       </div>
-      <Link className="bg-blue-400" to="manageInventory">
-        Manage Inventory
-      </Link>
+      <span className="flex justify-center">
+        <Link
+          to="/manageInventory"
+          className="text-white font-semibold font-mono bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800  rounded-full px-12 py-2.5 text-center  my-4"
+        >
+          Manage Inventory
+        </Link>
+      </span>
     </div>
   );
 };
