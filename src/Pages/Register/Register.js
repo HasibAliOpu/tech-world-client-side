@@ -4,9 +4,9 @@ import {
   useCreateUserWithEmailAndPassword,
   useUpdateProfile,
 } from "react-firebase-hooks/auth";
-import auth from "../firebase.init";
+import auth from "../../firebase.init";
 import { toast } from "react-toastify";
-import Loading from "../Loading/Loading";
+import Loading from "../../Loading/Loading";
 import SocialLogin from "../SocialLogin/SocialLogin";
 
 const Register = () => {

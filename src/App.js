@@ -8,9 +8,10 @@ import ManageInventory from "./Pages/ManageInventory/ManageInventory";
 import AddItem from "./Pages/AddItem/AddItem";
 import { ToastContainer } from "react-toastify";
 import MyItems from "./Pages/MyItems/MyItems";
-import Login from "./Login/Login";
-import Register from "./Register/Register";
+import Login from "./Pages/Login/Login";
+import Register from "./Pages/Register/Register";
 import RequireAuth from "./RequireAuth/RequireAuth";
+import NotFound from "./Pages/NotFound/NotFound";
 
 function App() {
   return (
@@ -45,6 +46,7 @@ function App() {
         />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
       <ToastContainer />
       <Footer />

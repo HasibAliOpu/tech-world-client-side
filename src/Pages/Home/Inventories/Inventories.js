@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import useGetAllItems from "../../Hooks/useGetAllItems";
+import useGetAllItems from "../../../Hooks/useGetAllItems";
 import Inventory from "../Inventory/Inventory";
 
 const Inventories = () => {

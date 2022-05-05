@@ -4,7 +4,7 @@ import axios from "axios";
 import React from "react";
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
-import useGetAllItems from "../Hooks/useGetAllItems";
+import useGetAllItems from "../../Hooks/useGetAllItems";
 
 const ManageInventory = () => {
   const [products] = useGetAllItems();
