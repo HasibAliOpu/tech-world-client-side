@@ -5,17 +5,13 @@ const useGetAllItems = () => {
   const [products, setProducts] = useState([]);
   useEffect(() => {
     const url = "http://localhost:5000/item";
-    fetch(url)
-      .then((res) => res.json())
-      .then((data) => setProducts(data));
-    // (async () => {
-    //   const { data } = await axios.get(
-    //     `https://fierce-fjord-73876.herokuapp.com/item`
-    //   );
-    //   setProducts(data);
-    // })();
+
+    (async () => {
+      const { data } = await axios.get(url);
+      setProducts(data);
+    })();
   }, []);
-  return [products];
+  return [products, setProducts];
 };
 
 export default useGetAllItems;

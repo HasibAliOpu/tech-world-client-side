@@ -8,16 +8,11 @@ const ItemDetail = () => {
 
   useEffect(() => {
     const url = `http://localhost:5000/item/${inventoryId}`;
-    fetch(url)
-      .then((res) => res.json())
-      .then((data) => setItem(data));
 
-    /*  (async () => {
-      const { data } = await axios.get(
-        `https://fierce-fjord-73876.herokuapp.com/item/${inventoryId}`
-      );
+    (async () => {
+      const { data } = await axios.get(url);
       setItem(data);
-    })(); */
+    })();
   }, [inventoryId]);
 
   const { name, img, description, price, quantity, supplier } = item;

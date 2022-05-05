@@ -7,7 +7,7 @@ import { toast } from "react-toastify";
 import useGetAllItems from "../../Hooks/useGetAllItems";
 
 const ManageInventory = () => {
-  const [products] = useGetAllItems();
+  const [products, setProducts] = useGetAllItems();
 
   const handleDeleteItem = (id) => {
     const proceed = window.confirm(
@@ -15,17 +15,15 @@ const ManageInventory = () => {
     );
     const url = `http://localhost:5000/item/${id}`;
     if (proceed) {
-      fetch(url, {
-        method: "DELETE",
-      })
-        .then((res) => res.json())
-        .then((data) => {
-          console.log(data);
-        });
-      // (async () => {
-      //   const { data } = await axios.delete(url);
-      //   console.log(data);
-      // })();
+      (async () => {
+        const { data } = await axios.delete(url);
+        const newProduct = products.filter((product) => product._id !== id);
+        setProducts(newProduct);
+        if (!data.success) {
+          toast.error(data.error);
+        }
+        toast.success(data.message);
+      })();
     }
   };
   return (
