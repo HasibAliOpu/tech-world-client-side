@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const ItemDetail = () => {
   const { inventoryId } = useParams();
@@ -19,8 +20,23 @@ const ItemDetail = () => {
   let newQuantity = quantity;
   const handleManageQuantity = () => {
     newQuantity = newQuantity - 1;
-
+    const Quantity = { newQuantity };
     console.log(newQuantity);
+    const url = `http://localhost:5000/item/${inventoryId}`;
+    fetch(url, {
+      method: "PUT",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(Quantity),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (!data.success) {
+          toast.error(data.error);
+        }
+        toast.success(data.message);
+      });
   };
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 my-2 p-5 md:p-28">

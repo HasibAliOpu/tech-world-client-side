@@ -8,7 +8,9 @@ const Footer = () => {
       <div className="grid grid-cols-1 md:grid-cols-4 gap-10 p-12 tracking-wide text-lg">
         <div>
           <h1 className="font-semibold font-mono text-xl mb-5">
-            Store Location
+            <span className="border-b-2 border-red-600 pb-1">
+              Store Location
+            </span>
           </h1>
           <div>
             <p>500 Terry Francois Street</p>
@@ -36,7 +38,9 @@ const Footer = () => {
           </div>
         </div>
         <div>
-          <h1 className="font-semibold font-mono text-xl mb-5">Shop</h1>
+          <h1 className="font-semibold font-mono text-xl mb-5">
+            <span className="border-b-2 border-purple-400 pb-1">Shop</span>
+          </h1>
           <div>
             <p className="hover:text-purple-500">Shop All</p>
             <p className="hover:text-purple-500">Computers</p>
@@ -51,7 +55,9 @@ const Footer = () => {
         </div>
         <div>
           <h1 className="font-semibold font-mono text-xl mb-5">
-            Customer Support
+            <span className="border-b-2 border-green-500 pb-1">
+              Customer Support
+            </span>
           </h1>
           <div>
             <p>Contact Us</p>
@@ -61,7 +67,9 @@ const Footer = () => {
           </div>
         </div>
         <div>
-          <h1 className="font-semibold font-mono text-xl mb-5 ">Policy</h1>
+          <h1 className="font-semibold font-mono text-xl mb-5 ">
+            <span className="border-b-2 border-yellow-400 pb-1">Policy</span>
+          </h1>
           <div>
             <p>Shipping & Returns</p>
             <p className="pt-1">Terms & Conditions</p>
