@@ -10,11 +10,11 @@ const Header = () => {
 
   return (
     <div className="">
-      <span className="flex justify-between px-10 py-2 bg-sky-200">
+      <span className="md:flex justify-between px-10 py-2 bg-sky-200">
         <span className="text-4xl text-slate-700 font-semibold font-serif">
           <Link to="/">Tech World</Link>
         </span>
-        <span className="flex items-center gap-3 text-lg text-sky-500">
+        <span className="md:flex items-center gap-3 text-lg text-sky-500">
           <CustomLink className=" " to="/">
             Home
           </CustomLink>

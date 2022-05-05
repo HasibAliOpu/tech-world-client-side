@@ -28,12 +28,12 @@ const ItemDetail = () => {
     console.log(newQuantity);
   };
   return (
-    <div className="grid grid-cols-2 my-2 p-28">
-      <span className="border-r-2 border-yellow-300 pr-2">
+    <div className="grid grid-cols-1 md:grid-cols-2 my-2 p-5 md:p-28">
+      <span className="md:border-r-2 border-yellow-300 pr-2">
         <img className="w-full" src={img} alt="" />
         <p>{description}</p>
       </span>
-      <div className="flex items-center text-center font-semibold">
+      <div className="flex items-center text-center pl-3 font-semibold">
         <span>
           <h1 className="text-3xl">Name: {name}</h1>
           <p className="py-1 text-yellow-500">Price: ${price}</p>

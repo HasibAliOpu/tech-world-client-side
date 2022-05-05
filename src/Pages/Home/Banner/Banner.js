@@ -55,11 +55,11 @@ const Banner = () => {
           ></span>
           <span className="visually-hidden">Next</span>
         </button>
-        <span className="absolute top-32 left-28  font-semibold">
+        <span className="absolute top-0 text-xs md:text-base md:top-32 md:left-28  font-semibold">
           <p className="bg-red-600 py-1 px-2 rounded-full inline-block  text-white">
             Best Prices
           </p>
-          <h1 className="text-slate-600 text-6xl tracking-wider">
+          <h1 className="text-slate-600 md:text-6xl tracking-wider">
             Incredible Prices <br />
             on All Your <br />
             Favorite Items

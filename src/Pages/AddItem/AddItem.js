@@ -35,7 +35,7 @@ const AddItem = () => {
   };
 
   return (
-    <div className="w-1/2 my-5 mx-auto p-4 border-4 bg-sky-400  border-sky-400 rounded-xl">
+    <div className="md:w-1/2 my-5 md:mx-auto mx-5 p-4 border-4 bg-sky-400  border-sky-400 rounded-xl">
       <h1 className="text-3xl my-4 font-semibold font-serif text-center text-slate-100">
         Add Your Item
       </h1>

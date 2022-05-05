@@ -3,23 +3,26 @@ import React from "react";
 const Discount = () => {
   return (
     <div>
-      <div className="flex gap-10 p-10">
-        <div className="relative">
+      <div className="md:flex gap-10 p-10">
+        <div className="relative md:mb-0 mb-3">
           <img src="https://i.ibb.co/9htX7Ym/iphone.webp" alt="" />
-          <span className="absolute top-24 left-20 text-white ">
-            <p className="font-mono py-2 text-xl">Holiday Deals</p>
+          <span className="absolute md:top-24 top-0 md:left-20 left-5 text-white ">
+            <p className="font-mono py-2 md:text-xl text-xs">Holiday Deals</p>
             <h1 className="font-semibold">
-              <span className="text-5xl block pb-2"> Up to </span>
-              <span className="text-7xl tracking-wide"> 30% off</span>
+              <span className="md:text-5xl text-xs block pb-2"> Up to </span>
+              <span className="md:text-7xl text-xs tracking-wide">
+                {" "}
+                30% off
+              </span>
             </h1>
             <p className="py-2 font-mono">On Every Smartphone Brands</p>
           </span>
         </div>
         <div className="relative">
           <img src="https://i.ibb.co/dPLMRtn/head-Phone.webp" alt="" />
-          <span className="absolute top-20 left-20 text-white">
-            <p className="font-mono py-2 text-xl">Just In</p>
-            <h1 className="font-semibold text-5xl tracking-wider">
+          <span className="absolute top-0 md:top-20 md:left-20 left-5 text-white">
+            <p className="font-mono py-2 md:text-xl text-xs">Just In</p>
+            <h1 className="font-semibold text-xs md:text-5xl tracking-wider">
               Take Your <br />
               Sound <br />
               Anywhere

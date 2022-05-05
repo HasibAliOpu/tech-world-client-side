@@ -46,7 +46,7 @@ const Login = () => {
     toast("send Email");
   };
   return (
-    <div className=" w-1/2 my-5 mx-auto">
+    <div className="md:w-1/2 my-5 md:mx-auto mx-5">
       <h1 className="text-3xl text-center">Please Login</h1>
       <div className="block p-6 rounded-lg shadow-2xl bg-white">
         <form onSubmit={handleUserLogin}>

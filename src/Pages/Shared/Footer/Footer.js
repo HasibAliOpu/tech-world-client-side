@@ -5,7 +5,7 @@ import React from "react";
 const Footer = () => {
   return (
     <div className="bg-slate-100">
-      <div className="grid grid-cols-4 gap-10 p-12 tracking-wide text-lg">
+      <div className="grid grid-cols-1 md:grid-cols-4 gap-10 p-12 tracking-wide text-lg">
         <div>
           <h1 className="font-semibold font-mono text-xl mb-5">
             Store Location
@@ -73,7 +73,7 @@ const Footer = () => {
       <div className="border border-blue-300 mx-10 my-5" />
       <div>
         <h1 className="text-center">We accept the following paying methods</h1>
-        <span className="flex justify-center gap-10 my-9">
+        <span className="md:flex justify-center grid grid-cols-2 gap-10 my-9 md:ml-0 ml-10">
           <img
             src="https://static.wixstatic.com/media/84770f_27001c40036842889a78a72766ad4700~mv2.png/v1/fill/w_55,h_33,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/Visa.png"
             alt="visa"
@@ -108,7 +108,7 @@ const Footer = () => {
           />
         </span>
       </div>
-      <div className="flex justify-center items-center gap-1 bg-slate-300 py-3">
+      <div className="flex justify-center text-xs md:text-base items-center gap-1 bg-slate-300 py-3">
         <FontAwesomeIcon icon={faCopyright} />
         <p>{new Date().getFullYear()} by TechWorld. Design by FWD_opu</p>
       </div>

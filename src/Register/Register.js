@@ -36,8 +36,8 @@ const Register = () => {
     await updateProfile({ displayName: name });
   };
   return (
-    <div className="md:w-1/2 p-10 md:p-0  mx-auto">
-      <div className="flex flex-col items-start justify-between w-full px-10 pt-5 pb-20 lg:pt-20 lg:flex-row">
+    <div className="md:w-1/2 mx-auto">
+      <div className="flex flex-col items-start justify-between w-full md:px-10 px-3 pt-5 pb-20 lg:pt-20 lg:flex-row">
         <div className="relative z-10 w-full max-w-2xl mt-20 lg:mt-0 ">
           <div className="relative z-10 flex flex-col items-start justify-start p-10 bg-white shadow-2xl rounded-xl">
             <h4 className="w-full text-4xl font-medium text-blue-600 leading-snug">
@@ -118,7 +118,7 @@ const Register = () => {
             </form>
           </div>
           <svg
-            className="absolute top-0 left-0 z-0 w-32 h-32 -mt-12 -ml-12 text-gray-200 fill-current"
+            className="hidden md:block absolute top-0 left-0 z-0 w-32 h-32 -mt-12 -ml-12 text-gray-200 fill-current"
             viewBox="0 0 91 91"
             xmlns="http://www.w3.org/2000/svg"
           >
@@ -210,7 +210,7 @@ const Register = () => {
             </g>
           </svg>
           <svg
-            className="absolute bottom-0 right-0 z-0 w-32 h-32 -mb-12 -mr-12 text-blue-600 fill-current"
+            className="hidden md:block absolute bottom-0 right-0 z-0 w-32 h-32 -mb-12 -mr-12 text-blue-600 fill-current"
             viewBox="0 0 91 91"
             xmlns="http://www.w3.org/2000/svg"
           >

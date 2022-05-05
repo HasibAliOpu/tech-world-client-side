@@ -10,7 +10,7 @@ const Inventories = () => {
       <h1 className="text-3xl text-cyan-400 my-9 font-semibold font-serif text-center">
         Our Top Products
       </h1>
-      <div className="grid grid-cols-3 gap-5 mx-20 px-16">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-5 md:mx-20 mb-2 px-5 md:px-16">
         {products.slice(0, 6).map((Item) => (
           <Inventory key={Item._id} item={Item}></Inventory>
         ))}

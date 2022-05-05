@@ -33,7 +33,7 @@ const ManageInventory = () => {
       <h1 className="text-center font-semibold font-mono text-2xl">
         All Products
       </h1>
-      <div className="grid grid-cols-3 gap-5 my-5 mx-14">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-5 my-5 mx-6 md:mx-14">
         {products.map((product) => (
           <div
             data-aos="zoom-in-down"
