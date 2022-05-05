@@ -42,7 +42,14 @@ const ManageInventory = () => {
             <h1 className="text-xl">Name: {product.name}</h1>
             <h1 className="text-lg text-yellow-500">Price: ${product.price}</h1>
             <p>{product.description}</p>
-            <p>quantity:{product.quantity}</p>
+            <p>
+              quantity:
+              {product.quantity === 0 ? (
+                <span className="text-red-600">Out of Stock</span>
+              ) : (
+                product.quantity
+              )}
+            </p>
             <p className="mb-8">
               <small>Supplier: {product.supplier}</small>
             </p>
@@ -66,6 +73,14 @@ const ManageInventory = () => {
           </div>
         ))}
       </div>
+      <span className="flex justify-center">
+        <Link
+          to="/addItem"
+          className="text-white font-semibold font-mono bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800  rounded-full px-12 py-2.5 text-center  my-4"
+        >
+          Add New Item
+        </Link>
+      </span>
     </div>
   );
 };
