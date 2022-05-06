@@ -9,7 +9,7 @@ const AddItem = () => {
   const [user] = useAuthState(auth);
   const { register, handleSubmit } = useForm();
   const onSubmit = async (itemInfo, event) => {
-    const url = `http://localhost:5000/item`;
+    const url = `https://fierce-fjord-73876.herokuapp.com/item`;
 
     try {
       const { data } = await axios.post(url, itemInfo);

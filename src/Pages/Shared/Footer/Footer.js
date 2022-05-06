@@ -116,9 +116,9 @@ const Footer = () => {
           />
         </span>
       </div>
-      <div className="flex justify-center text-xs md:text-base items-center gap-1 bg-slate-300 py-3">
+      <div className="flex justify-center text-xs md:text-base items-center gap-1 text-slate-700 bg-slate-300 py-3">
         <FontAwesomeIcon icon={faCopyright} />
-        <p>{new Date().getFullYear()} by TechWorld. Design by FWD_opu</p>
+        <p>{new Date().getFullYear()} by TechWorld. Design by FWD_Opu</p>
       </div>
     </div>
   );

@@ -8,7 +8,7 @@ const ItemDetail = () => {
   const [item, setItem] = useState([]);
   const increaseRef = useRef();
   useEffect(() => {
-    const url = `http://localhost:5000/item/${inventoryId}`;
+    const url = `https://fierce-fjord-73876.herokuapp.com/item/${inventoryId}`;
 
     (async () => {
       const { data } = await axios.get(url);
@@ -26,7 +26,7 @@ const ItemDetail = () => {
       return toast.warning("This Item is Out Of Stock!!");
     }
     const Quantity = { newQuantity };
-    const url = `http://localhost:5000/item/${inventoryId}`;
+    const url = `https://fierce-fjord-73876.herokuapp.com/item/${inventoryId}`;
     const { data } = await axios.put(url, Quantity);
     if (!data.success) {
       toast.error(data.error);
@@ -37,14 +37,14 @@ const ItemDetail = () => {
   /* Increasing Quantity */
   const handleIncreaseQuantity = async () => {
     const increaseValue = parseInt(increaseRef.current.value);
-    if (increaseValue <= 0) {
+    if (increaseValue <= 0 || increaseValue === isNaN) {
       return toast.warn("Please Provide Valid Number");
     }
     newQuantity = parseInt(newQuantity) + increaseValue;
     console.log(newQuantity);
     const Quantity = { newQuantity };
     console.log(Quantity);
-    const url = `http://localhost:5000/item/${inventoryId}`;
+    const url = `https://fierce-fjord-73876.herokuapp.com/item/${inventoryId}`;
     const { data } = await axios.put(url, Quantity);
     if (!data.success) {
       toast.error(data.error);

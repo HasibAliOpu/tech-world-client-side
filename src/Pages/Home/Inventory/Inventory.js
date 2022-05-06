@@ -5,12 +5,12 @@ const Inventory = ({ item }) => {
   const { _id, name, img, description, price, supplier, quantity } = item;
 
   return (
-    <div data-aos="zoom-in-down" className="shadow-xl px-2 rounded-lg relative">
+    <div data-aos="zoom-in-down" className="shadow-xl px-3 rounded-lg relative">
       <img src={img} alt="" />
       <h1 className="text-xl">Name: {name}</h1>
       <h1 className="text-lg text-yellow-500">Price: ${price}</h1>
-      <p>{description}</p>
-      <p>Quantity:{quantity}</p>
+      <p className="text-slate-600">{description}</p>
+      <p className="text-green-400 text-lg">Quantity:{quantity}</p>
       <p className="mb-8">
         <small>Supplier: {supplier}</small>
       </p>

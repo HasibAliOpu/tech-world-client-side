@@ -13,7 +13,7 @@ const ManageInventory = () => {
     const proceed = window.confirm(
       "Are you sure you want to delete this item?"
     );
-    const url = `http://localhost:5000/item/${id}`;
+    const url = `https://fierce-fjord-73876.herokuapp.com/item/${id}`;
     if (proceed) {
       (async () => {
         const { data } = await axios.delete(url);
@@ -41,8 +41,8 @@ const ManageInventory = () => {
             <img src={product.img} alt="" />
             <h1 className="text-xl">Name: {product.name}</h1>
             <h1 className="text-lg text-yellow-500">Price: ${product.price}</h1>
-            <p>{product.description}</p>
-            <p>
+            <p className="text-slate-600">{product.description}</p>
+            <p className="text-green-500 text-lg">
               quantity:
               {product.quantity === 0 ? (
                 <span className="text-red-600">Out of Stock</span>

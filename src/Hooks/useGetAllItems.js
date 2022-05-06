@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 const useGetAllItems = () => {
   const [products, setProducts] = useState([]);
   useEffect(() => {
-    const url = "http://localhost:5000/item";
+    const url = "https://fierce-fjord-73876.herokuapp.com/item";
 
     (async () => {
       const { data } = await axios.get(url);
