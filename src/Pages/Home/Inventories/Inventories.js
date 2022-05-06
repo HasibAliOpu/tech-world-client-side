@@ -20,7 +20,7 @@ const Inventories = () => {
           to="/manageInventory"
           className="text-white font-semibold font-mono bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800  rounded-full px-12 py-2.5 text-center  my-4"
         >
-          Manage Inventory
+          Manage Inventories
         </Link>
       </span>
     </div>

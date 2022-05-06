@@ -32,6 +32,7 @@ const ItemDetail = () => {
       toast.error(data.error);
     }
     toast.success(data.message);
+    window.location.reload();
   };
   /* Increasing Quantity */
   const handleIncreaseQuantity = async () => {
@@ -49,6 +50,7 @@ const ItemDetail = () => {
       toast.error(data.error);
     }
     toast.success("Successfully Added Item Quantity!!");
+    window.location.reload();
   };
   return (
     <div>
@@ -70,7 +72,8 @@ const ItemDetail = () => {
               )}
             </p>
             <p>Supplier: {supplier}</p>
-            <span>
+            <div className="my-3">
+              <p className="text-blue-500 text-lg">restock the items</p>
               <input
                 type="number"
                 name="quantity"
@@ -79,11 +82,11 @@ const ItemDetail = () => {
               />
               <button
                 onClick={handleIncreaseQuantity}
-                className="bg-indigo-400 mt-4 px-5 py-1 text-white rounded-full hover:bg-indigo-500"
+                className="bg-indigo-400 px-5 py-1 text-white rounded-full hover:bg-indigo-500"
               >
                 Add Quantity
               </button>
-            </span>
+            </div>
             <div className="border-b-2 border-sky-300 mx-3 my-1" />
             <button
               onClick={handleDecreaseQuantity}
@@ -99,7 +102,7 @@ const ItemDetail = () => {
           to="/manageInventory"
           className="text-white font-semibold font-mono bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800  rounded-full px-12 py-2.5 text-center  my-4"
         >
-          Manage Inventory
+          Manage Inventories
         </Link>
       </span>
     </div>
