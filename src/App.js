@@ -12,6 +12,7 @@ import Login from "./Pages/Login/Login";
 import Register from "./Pages/Register/Register";
 import RequireAuth from "./RequireAuth/RequireAuth";
 import NotFound from "./Pages/NotFound/NotFound";
+import Blogs from "./Pages/Blogs/Blogs";
 
 function App() {
   return (
@@ -51,6 +52,7 @@ function App() {
             </RequireAuth>
           }
         />
+        <Route path="blogs" element={<Blogs />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="*" element={<NotFound />} />

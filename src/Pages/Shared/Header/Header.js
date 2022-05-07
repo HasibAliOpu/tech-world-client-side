@@ -20,9 +20,10 @@ const Header = () => {
           </CustomLink>
           {user ? (
             <>
+              <CustomLink to="/manageInventory">Manage Items</CustomLink>
               <CustomLink to="/addItem">Add Item</CustomLink>
               <CustomLink to="/myItem">My Items</CustomLink>
-              <CustomLink to="/manageInventory">Manage Items</CustomLink>
+              <CustomLink to="/blogs">Blogs</CustomLink>
               <button onClick={() => signOut(auth)}>LogOut</button>
               <p className="text-sky-700">
                 {user?.displayName ? user.displayName : "User"}
