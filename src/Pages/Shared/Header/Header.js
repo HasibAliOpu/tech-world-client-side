@@ -24,13 +24,23 @@ const Header = () => {
               <CustomLink to="/addItem">Add Item</CustomLink>
               <CustomLink to="/myItem">My Items</CustomLink>
               <CustomLink to="/blogs">Blogs</CustomLink>
-              <button onClick={() => signOut(auth)}>LogOut</button>
+              <button
+                className="text-red-500 font-mono font-semibold"
+                onClick={() => signOut(auth)}
+              >
+                LogOut
+              </button>
               <p className="text-sky-700">
                 {user?.displayName ? user.displayName : "User"}
               </p>
             </>
           ) : (
-            <CustomLink to="/login">Login</CustomLink>
+            <CustomLink
+              className="text-green-500 font-mono font-semibold"
+              to="/login"
+            >
+              Login
+            </CustomLink>
           )}
         </span>
       </span>

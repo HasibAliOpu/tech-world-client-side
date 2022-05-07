@@ -60,13 +60,13 @@ const ItemDetail = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 my-2 p-5 md:p-28">
         <span className="md:border-r-2 border-yellow-300 pr-2">
           <img className="w-full" src={img} alt="" />
-          <p>{description}</p>
+          <p className="border-t-2 border-red-500 pt-1 ">{description}</p>
         </span>
         <div className="flex items-center text-center pl-3 font-semibold">
           <span>
-            <h1 className="text-3xl">Name: {name}</h1>
+            <h1 className="text-3xl py-5">Name: {name}</h1>
             <p className="py-1 text-yellow-500">Price: ${price}</p>
-            <p>
+            <p className="text-cyan-400">
               Quantity:
               {newQuantity === 0 ? (
                 <span className="text-red-600">Out of stock</span>
@@ -74,14 +74,14 @@ const ItemDetail = () => {
                 newQuantity
               )}
             </p>
-            <p>Supplier: {supplier}</p>
+            <p className="text-slate-500">Supplier: {supplier}</p>
             <div className="my-3">
               <p className="text-blue-500 text-lg">restock the items</p>
               <input
                 type="number"
                 name="quantity"
                 ref={increaseRef}
-                className="border border-green-500 rounded mr-2 outline-none pl-2"
+                className="border border-green-500 rounded mr-2 outline-none pl-2 mb-1"
               />
               <button
                 onClick={handleIncreaseQuantity}

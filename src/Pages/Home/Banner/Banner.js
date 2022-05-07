@@ -55,7 +55,7 @@ const Banner = () => {
           ></span>
           <span className="visually-hidden">Next</span>
         </button>
-        <span className="absolute top-0 text-xs md:text-base md:top-32 md:left-28  font-semibold">
+        <span className="absolute top-5 left-2 text-xs md:text-base md:top-32 md:left-28  font-semibold">
           <p className="bg-red-600 py-1 px-2 rounded-full inline-block  text-white">
             Best Prices
           </p>
