@@ -6,6 +6,7 @@ import { toast } from "react-toastify";
 const ItemDetail = () => {
   const { inventoryId } = useParams();
   const [item, setItem] = useState([]);
+  const [reload, setIsReload] = useState(true);
   const increaseRef = useRef();
   useEffect(() => {
     const url = `https://fierce-fjord-73876.herokuapp.com/item/${inventoryId}`;
@@ -14,7 +15,7 @@ const ItemDetail = () => {
       const { data } = await axios.get(url);
       setItem(data);
     })();
-  }, [inventoryId]);
+  }, [inventoryId, reload]);
 
   const { name, img, description, price, quantity, supplier } = item;
   let newQuantity = quantity;
@@ -30,27 +31,29 @@ const ItemDetail = () => {
     const { data } = await axios.put(url, Quantity);
     if (!data.success) {
       toast.error(data.error);
+    } else {
+      toast.success(data.message);
+      setIsReload(!reload);
     }
-    toast.success(data.message);
-    window.location.reload();
   };
+
   /* Increasing Quantity */
   const handleIncreaseQuantity = async () => {
     const increaseValue = parseInt(increaseRef.current.value);
-    if (increaseValue <= 0 || increaseValue === isNaN) {
+    if (increaseValue <= 0 || !increaseValue) {
       return toast.warn("Please Provide Valid Number");
     }
     newQuantity = parseInt(newQuantity) + increaseValue;
-    console.log(newQuantity);
     const Quantity = { newQuantity };
-    console.log(Quantity);
+
     const url = `https://fierce-fjord-73876.herokuapp.com/item/${inventoryId}`;
     const { data } = await axios.put(url, Quantity);
     if (!data.success) {
       toast.error(data.error);
+    } else {
+      toast.success("Successfully Added Item Quantity!!");
+      setIsReload(!reload);
     }
-    toast.success("Successfully Added Item Quantity!!");
-    window.location.reload();
   };
   return (
     <div>
