@@ -12,7 +12,11 @@ const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div className={`bg-sky-200 relative ${isOpen ? "mb-60" : "mb-0"}`}>
+    <div
+      className={`bg-sky-200 text-sky-400 relative ${
+        isOpen ? "mb-60" : "mb-0"
+      }`}
+    >
       <div
         onClick={() => setIsOpen(!isOpen)}
         className="text-xl pl-1 md:hidden"
@@ -28,17 +32,18 @@ const Header = () => {
           isOpen ? "top-7" : "top-[-250px]"
         }`}
       >
-        <span className="text-4xl text-slate-700 font-semibold font-serif">
+        <span className="text-4xl text-sky-500 font-semibold font-serif">
           <Link to="/">Tech World</Link>
         </span>
         <span className="md:flex items-center gap-3 text-lg text-sky-500">
           <CustomLink to="/">Home</CustomLink>
+          <CustomLink to="/blogs">Blogs</CustomLink>
           {user ? (
             <>
               <CustomLink to="/manageInventory">Manage Items</CustomLink>
               <CustomLink to="/addItem">Add Item</CustomLink>
               <CustomLink to="/myItem">My Items</CustomLink>
-              <CustomLink to="/blogs">Blogs</CustomLink>
+
               <button
                 className="text-red-500 font-mono font-semibold"
                 onClick={() => signOut(auth)}

@@ -54,9 +54,11 @@ const MyItems = () => {
 
   return (
     <div>
-      <div className="text-center text-xl my-5">
-        <h1>User-Email: {email}</h1>
-        <h1>User Added Item</h1>
+      <div className="text-center  text-2xl font-mono font-bold my-5">
+        <h1 className="text-yellow-400">
+          User-Email: <span className="text-purple-400 ">{email}</span>
+        </h1>
+        <h1 className="text-green-400">User Added Item</h1>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-5 my-5 mx-6 md:mx-14">
         {items.map((item) => (
