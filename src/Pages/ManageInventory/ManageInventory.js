@@ -1,13 +1,33 @@
 import { faTrashCan, faUpload } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import axios from "axios";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
-import useGetAllItems from "../../Hooks/useGetAllItems";
 
 const ManageInventory = () => {
-  const [products, setProducts] = useGetAllItems();
+  const [products, setProducts] = useState([]);
+  const [itemCount, setItemCount] = useState(0);
+  const [page, setPage] = useState(0);
+
+  useEffect(() => {
+    const url = `https://fierce-fjord-73876.herokuapp.com/item?page=${page}&count=12`;
+
+    (async () => {
+      const { data } = await axios.get(url);
+      setProducts(data);
+    })();
+  }, [page]);
+
+  useEffect(() => {
+    fetch("https://fierce-fjord-73876.herokuapp.com/itemCount")
+      .then((res) => res.json())
+      .then((data) => {
+        const itemCount = data.itemCount;
+        const pages = Math.ceil(itemCount / 12);
+        setItemCount(pages);
+      });
+  }, []);
 
   const handleDeleteItem = (id) => {
     const proceed = window.confirm(
@@ -71,6 +91,20 @@ const ManageInventory = () => {
               </button>
             </div>
           </div>
+        ))}
+      </div>
+      <div className="text-center ">
+        {[...Array(itemCount).keys()].map((number) => (
+          <button
+            onClick={() => setPage(number)}
+            className={
+              page === number
+                ? "bg-sky-300  font-bold text-sm text-white mr-1 border-2 border-sky-300 px-3 py-1 rounded"
+                : "bg-white font-bold text-sm text-slate-700 mr-1 border-2 border-sky-500 px-3 py-1 rounded"
+            }
+          >
+            {number + 1}
+          </button>
         ))}
       </div>
       <span className="flex justify-center">

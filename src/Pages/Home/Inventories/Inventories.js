@@ -1,10 +1,18 @@
-import React from "react";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import useGetAllItems from "../../../Hooks/useGetAllItems";
 import Inventory from "../Inventory/Inventory";
 
 const Inventories = () => {
-  const [products] = useGetAllItems();
+  const [products, setProducts] = useState([]);
+  useEffect(() => {
+    const url = "https://fierce-fjord-73876.herokuapp.com/item";
+
+    (async () => {
+      const { data } = await axios.get(url);
+      setProducts(data);
+    })();
+  }, []);
   return (
     <div>
       <h1 className="md:text-3xl text-2xl text-cyan-400 my-9 font-semibold font-serif text-center">
