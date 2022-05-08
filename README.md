@@ -1,70 +1,36 @@
-# Getting Started with Create React App
+# Tech World
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Live Site Link [Tech-World](https://tech-world-c48c2.web.app/)
 
-## Available Scripts
+Welcome to Tech World...
 
-In the project directory, you can run:
+### website description
 
-### `npm start`
+In this website you can see many kind of gadgets and gears. it's a warehouse website so you can't buy or sell the items.
+but you can increase/decrease the item quantity on the ItemDetails Route, On the home page, you can see the simple navbar, banner-carousel, some discount banner and info, delivery details, top-6 items , spacial discount of drones, and the footer. At the bottom of the items card you can see the (update) button.if you click the button it lets you go to the itemDetails route, it's a private route, so you must be login to go the itemDetails route. on the itemDetails route you can see the item details and 1 simple form and a (delivered)btn, on the form you can increase the item quantity and the decrease the quantity. on that route you have a more (manage inventories)btn, the same btn have the home route. This btn will take you the manage inventory route. on that route you see the all items, on each item you have 2 btn ,1: update btn, 2 delete btn. If you want to delete any item press the (delete) btn, it's will remove for client-side and the database. On the manage Inventory route i have lot of items thats way i implement the pagination. each page you see 12 item. On the bottom of this route you see the btn, it's see(add new item). This btn take you the addItem route, the route have a simple form. you must full-fill the all input to add the item. if it's add it's give you a simple success toast.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+On the myItem route, you can see the your added items. The Blogs route, it's a Q&A page. I have given a answer to some questions.
+On login route, i implement a simple login form to [react-hook-form] , you can login with EmailandPassword or google.
+i give a forget password authentication..if you want to change you password click the forget password then you got a roast and a email on you device/desktop. If you new at tech world ...then you go to register, in this route i implement tailwind form it's different to login form.
+i setup a extra feature at register and login form, that is the (eye)btn,if you click the btn you can see you password.
+and i implement JWT on login form for the verify the email and protect the user details.
+And The last i created a 404 page...on this route, you can see a simple 404 error image.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+                                                                        That's All Thank you
 
-### `npm test`
+## Using Technologies
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Tailwind
+- Tailwind-Elements (for the carousel and form)
+- firebase
+- React-Firebase-Hook
+- React-hook-form
+- React-Toastify
+- React-Router
+- React-active-link
+- AOS (for card animation)
+- Axios.js
 
-### `npm run build`
+- FontAwesome
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## I Hope you Enjoying to Exploring My First Full-Stack Website, Thank You For Visiting..!!
