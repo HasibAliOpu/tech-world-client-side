@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import {
   useSendPasswordResetEmail,
   useSignInWithEmailAndPassword,
@@ -9,8 +9,11 @@ import auth from "../../firebase.init";
 import Loading from "../../Loading/Loading";
 import SocialLogin from "../SocialLogin/SocialLogin";
 import axios from "axios";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 
 const Login = () => {
+  const [open, setOpen] = useState(false);
   const emailRef = useRef("");
   const passwordRef = useRef("");
   const location = useLocation();
@@ -87,7 +90,7 @@ const Login = () => {
               placeholder="Enter email"
             />
           </div>
-          <div className="form-group mb-6">
+          <div className="form-group mb-6 relative">
             <label
               htmlFor="exampleInputPassword2"
               className="form-label inline-block mb-2 text-gray-700"
@@ -95,7 +98,7 @@ const Login = () => {
               Password
             </label>
             <input
-              type="password"
+              type={open ? "text" : "password"}
               name="password"
               ref={passwordRef}
               required
@@ -116,6 +119,16 @@ const Login = () => {
               id="exampleInputPassword2"
               placeholder="Password"
             />
+            <span
+              onClick={() => setOpen(!open)}
+              className="absolute top-10 right-3"
+            >
+              {open ? (
+                <FontAwesomeIcon icon={faEye} />
+              ) : (
+                <FontAwesomeIcon icon={faEyeSlash} />
+              )}
+            </span>
           </div>
           <div className="flex justify-between items-center mb-6">
             <button

@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import {
   useCreateUserWithEmailAndPassword,
@@ -8,8 +8,11 @@ import auth from "../../firebase.init";
 import { toast } from "react-toastify";
 import Loading from "../../Loading/Loading";
 import SocialLogin from "../SocialLogin/SocialLogin";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 
 const Register = () => {
+  const [open, setOpen] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
   const from = location.state?.from?.pathname || "/";
@@ -75,11 +78,21 @@ const Register = () => {
                   Password
                 </label>
                 <input
-                  type="password"
+                  type={open ? "text" : "password"}
                   name="password"
                   className="block w-full px-4 py-4 mt-2 text-base bg-white border border-gray-300 rounded-md focus:outline-none focus:border-black"
                   required
                 />
+                <span
+                  onClick={() => setOpen(!open)}
+                  className="absolute top-4 right-2"
+                >
+                  {open ? (
+                    <FontAwesomeIcon icon={faEye} />
+                  ) : (
+                    <FontAwesomeIcon icon={faEyeSlash} />
+                  )}
+                </span>
               </div>
               <div className="flex items-start mb-6">
                 <div className="flex items-center h-5">
