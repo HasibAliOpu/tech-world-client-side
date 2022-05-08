@@ -1,21 +1,38 @@
 import { faTrashCan, faUpload } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import axios from "axios";
-import React, { useState } from "react";
+import { signOut } from "firebase/auth";
+import React, { useState, useEffect } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import auth from "../../firebase.init";
 
 const MyItems = () => {
+  const navigate = useNavigate();
   const [items, setItems] = useState([]);
   const [user] = useAuthState(auth);
   const email = user?.email;
   const url = `https://fierce-fjord-73876.herokuapp.com/myItem?email=${email}`;
-  (async () => {
-    const { data } = await axios.get(url);
-    setItems(data);
-  })();
+
+  useEffect(() => {
+    (async () => {
+      try {
+        const { data } = await axios.get(url, {
+          headers: {
+            authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+          },
+        });
+        setItems(data);
+      } catch (error) {
+        toast.error(error.message);
+        if (error.response.status === 401 || error.response.status === 403) {
+          signOut(auth);
+          navigate("/login");
+        }
+      }
+    })();
+  }, [url, navigate, user]);
 
   const handleDeleteItem = (id) => {
     const proceed = window.confirm(

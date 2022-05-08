@@ -1,23 +1,38 @@
 import { signOut } from "firebase/auth";
-import React from "react";
+import React, { useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { Link } from "react-router-dom";
 import auth from "../../../firebase.init";
 import CustomLink from "../../../CustomLink/CustomLink";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBars, faXmark } from "@fortawesome/free-solid-svg-icons";
 
 const Header = () => {
   const [user] = useAuthState(auth);
+  const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div className="">
-      <span className="md:flex justify-between px-10 py-2 bg-sky-200">
+    <div className={`bg-sky-200 relative ${isOpen ? "mb-60" : "mb-0"}`}>
+      <div
+        onClick={() => setIsOpen(!isOpen)}
+        className="text-xl pl-1 md:hidden"
+      >
+        {isOpen ? (
+          <FontAwesomeIcon icon={faXmark} />
+        ) : (
+          <FontAwesomeIcon icon={faBars} />
+        )}
+      </div>
+      <div
+        className={`md:flex justify-between px-10 py-2  bg-sky-200  w-full md:static  absolute ${
+          isOpen ? "top-7" : "top-[-250px]"
+        }`}
+      >
         <span className="text-4xl text-slate-700 font-semibold font-serif">
           <Link to="/">Tech World</Link>
         </span>
         <span className="md:flex items-center gap-3 text-lg text-sky-500">
-          <CustomLink className=" " to="/">
-            Home
-          </CustomLink>
+          <CustomLink to="/">Home</CustomLink>
           {user ? (
             <>
               <CustomLink to="/manageInventory">Manage Items</CustomLink>
@@ -43,7 +58,7 @@ const Header = () => {
             </CustomLink>
           )}
         </span>
-      </span>
+      </div>
     </div>
   );
 };

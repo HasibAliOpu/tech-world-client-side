@@ -1,4 +1,3 @@
-import { async } from "@firebase/util";
 import React, { useEffect, useRef } from "react";
 import {
   useSendPasswordResetEmail,
@@ -9,6 +8,7 @@ import { toast } from "react-toastify";
 import auth from "../../firebase.init";
 import Loading from "../../Loading/Loading";
 import SocialLogin from "../SocialLogin/SocialLogin";
+import axios from "axios";
 
 const Login = () => {
   const emailRef = useRef("");
@@ -39,6 +39,11 @@ const Login = () => {
     const email = emailRef.current.value;
     const password = passwordRef.current.value;
     await signInWithEmailAndPassword(email, password);
+    const { data } = await axios.post(
+      "https://fierce-fjord-73876.herokuapp.com/login",
+      { email }
+    );
+    localStorage.setItem("accessToken", data.accessToken);
   };
   const handleResetPassword = async () => {
     const email = emailRef.current.value;
