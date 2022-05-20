@@ -16,7 +16,7 @@ i setup a extra feature at register and login form, that is the (eye)btn,if you 
 and i implement JWT on login form for the verify the email and protect the user details.
 And The last i created a 404 page...on this route, you can see a simple 404 error image.
 
-                                                              That's All Thank you
+                                    That's All Thank you
 
 ## Using Technologies
 
